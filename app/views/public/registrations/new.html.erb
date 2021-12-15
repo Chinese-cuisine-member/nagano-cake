@@ -1,30 +1,68 @@
 
-<<h2>Sign up</h2>
+<h2>新規会員登録</h2>
+<%= render "public/shared/error_messages", resource: resource %>
+  <table class="table">
+    <thead>
+      <th></th>
+      <th></th>
+      <th></th>
+    </thead>
+    <tbody>
+      <%= form_with model: @customer, url: customer_registration_path, id: 'new_customer', class: 'new_customer', local: true do |f| %>
+      <tr>
+        <td>名前</td>
+        <td>(姓)<%= f.text_field :last_name, autofocus: true, class: "last_name" %></td>
+        <td>(名)<%= f.text_field :first_name, class: "first_name" %></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>(セイ)<%= f.text_field :last_name_kana, class: "last_name_kana" %></td>
+        <td>(メイ)<%= f.text_field :first_name_kana, class: "first_name_kana" %></td>
+      </tr>
+      <tr>
+        <td>メールアドレス</td>
+        <td><%= f.email_field :email, autocomplete: "email" %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>郵便番号(ハイフンなし)</td>
+        <td><%= f.text_field :zipcode, class: "zipcode" %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>住所</td>
+        <td colspan="2"><%= f.text_field :address, class: "address" %></td>
+      </tr>
+      <tr>
+        <td>電話番号(ハイフンなし)</td>
+        <td><%= f.text_field :phone_number, class: "phone_number" %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          パスワード
+          <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %>文字以上)</em>
+          <% end %>
+        </td>
+        <td><%= f.password_field :password, autocomplete: "new-password" %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>パスワード(確認用)</td>
+        <td><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><div class="actions"><%= f.submit "新規登録" %></div></td>
+        <td></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "public/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div>
+    <h4>既に登録済みの方</h4>
+    <%= render "public/shared/links" %>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "public/shared/links" %>
