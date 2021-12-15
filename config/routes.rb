@@ -23,6 +23,7 @@ scope module: :public do
   get 'about' => 'homes#about'
 
   resources :customers, only: %i[edit update]
+  get 'customers/my_page' => 'customers#show'
   patch 'customers/withdraw' => 'customers#withdraw'
   get 'customers/unsubscribe' => 'customers#unsubscribe'
 
