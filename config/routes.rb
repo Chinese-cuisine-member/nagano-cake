@@ -8,6 +8,11 @@ Rails.application.routes.draw do
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
   sessions: "admin/sessions"
 }
+resources :customers, only: [:edit, :update]
+
+
+namespace :admin do
+end
 
 root to: 'public/homes#top'
 get 'about' => 'public/homes#about'
