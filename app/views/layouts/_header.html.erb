@@ -1,0 +1,25 @@
+<header>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="/">
+        <span>LOGO</span>
+      </a>
+      
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+        <% if customer_signed_in? %>
+          <li>マイページ<!--<= link_to 'マイページ', customer_path(current_user),class: '' >--></li>
+          <li>商品一覧<!--<= link_to '商品一覧', items_path,class: '' >--></li>
+          <li>カート<!--<= link_to 'カート', cart_item_path , class: ''>--></li>
+          <li><%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class: '' %></li>
+        <% else %>
+          <li><%= link_to 'About', about_path, class: '' %></li>
+          <li>商品一覧<!--<= link_to '商品一覧', items_path, class: '' %>--></li>
+          <li><%= link_to '新規登録', new_customer_registration_path, class: '' %></li>
+          <li><%= link_to 'ログイン', new_customer_session_path, class: ''%></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
