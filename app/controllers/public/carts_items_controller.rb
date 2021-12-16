@@ -7,7 +7,19 @@ class Public::CartsItemsController < ApplicationController
   
   def create
     @carts_item = current_customer.carts_items.new(carts_item_params) 
-    if Item.find_by(name: )
+    @update_carts_item = CartsItem.find_by(item: @carts_item.item) 
+    if @update_carts_item.present? && @carts_item.valid?
+      @carts_item.quantity += @update_carts_item.quantity
+      @update_carts_item.destroy
+    end
+    
+    if @carts_item.save
+      redirect_to items_path
+    else
+      @item = Item.find(params[:carts_item][:item_id])
+      @carts_item = CartsItem.new
+      render :show
+    end
   end
   
   def update
@@ -33,4 +45,5 @@ class Public::CartsItemsController < ApplicationController
   
   def set_carts_item
     @carts_item = CartsItem.find(params[:id])
+  end
 end
