@@ -30,6 +30,21 @@
   font-family: 'Great Vibes', cursive;
 }
 
+.shop-image {
+  margin: 50px auto;
+  padding: 0;
+  width: 300px;
+  height: 200px;
+  background-image: image-url('shop.jpg');
+  background-repeat: none;
+  background-size: cover;
+  background-position: center;
+}
+
+.title {
+  font-family: 'Great Vibes', cursive;
+}
+
 .navbar-nav > li + li {
     padding: 0 25px;
 }
