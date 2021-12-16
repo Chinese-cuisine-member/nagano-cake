@@ -12,6 +12,16 @@ class Public::OrdersController < ApplicationController
     @order = current_customer.orders.new(order_params)
     @order.save
     redirect_to orders_complete_path
+    
+   @carts_items = current_customer.carts_items
+   @carts_items.each do |carts_item|
+     OrderDetail.create(
+       item: carts_item.item,
+       order: @order,
+       quantity: carts_item.quantity
+       amount_price: 
+       )
+   end
   end
   
   def show
@@ -20,6 +30,10 @@ class Public::OrdersController < ApplicationController
   end
   
   def confirm
+    @cart_items = current_customer.carts_items
+    @order = Order.new(customer: current_customer,
+    payment_method: params[:order][:payment_method]
+    )
     @order = Order.new(order_params)
   end
   
