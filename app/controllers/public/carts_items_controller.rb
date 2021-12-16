@@ -18,7 +18,7 @@ class Public::CartsItemsController < ApplicationController
     else
       @item = Item.find(params[:carts_item][:item_id])
       @carts_item = CartsItem.new
-      render :show
+      render ("items/show")
     end
   end
   
