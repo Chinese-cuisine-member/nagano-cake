@@ -70,3 +70,4 @@ gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
 
 gem 'kaminari'
+gem 'enum_help'

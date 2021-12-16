@@ -1,0 +1,69 @@
+<div class="container-fluid py-5">
+  <div class="row">
+    <div class="col-6 offset-3">
+      <h2 class="pb-5">商品新規登録</h2>
+      <table class="table">
+        <tbody>
+          <%= form_with model:@item, url:admin_items_path, local:true do |f| %>
+            <tr>
+              <td class="border-0">
+                <%= f.label :商品画像 %>
+              </td>
+              <td class="border-0">
+                <%= f.attachment_field :image, class: "" %>
+              </td>
+            </tr>
+            <tr>
+              <td class="border-0">
+                <%= f.label :商品名 %>
+              </td>
+              <td class="border-0">
+                <%= f.text_field :name, class:"form-control", placeholder:"商品名" %>
+              </td>
+            </tr>
+            <tr>
+              <td class="border-0">
+                <%= f.label :商品説明 %>
+              </td>
+              <td class="border-0">
+                <%= f.text_area :explanatiion, class:"form-control", placeholder:"商品説明" %>
+              </td>
+            </tr>
+            <tr>
+              <td class="border-0">
+                <%= f.label :ジャンル %>
+              </td>
+              <td class="border-0">
+                <%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name), class:"text-info" %>
+              </td>
+            </tr>
+            <tr>
+              <td class="border-0">
+                <%= f.label :税抜価格 %>
+              </td>
+              <td class="form-inline border-0">
+                <%= f.text_field :price, class:"form-control", placeholder:"1000" %>円
+              </td>
+            </tr>
+            <tr>
+              <td class="border-0">
+                <%= f.label :販売ステータス %>
+              </td>
+              <td class="border-0">
+                <%= f.radio_button :is_active, "true" %>
+                <%= f.label :is_activ, "販売中" %>
+                <%= f.radio_button :is_active, "false" %>
+                <%= f.label :is_activ, "販売停止中" %>
+              </td>
+            </tr>
+            <tr>
+              <td class="border-0 text-center" colspan="2">
+                <%= f.submit '新規登録', class:"btn btn-info px-5 my-3" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

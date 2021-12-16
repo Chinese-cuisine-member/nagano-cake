@@ -1,26 +1,48 @@
-<div class='container'>
+<div class='container my-3'>
   <div class='row'>
-    <div class='col-md-3'>
+    <div class='col-md-2'>
+      <table class="table text-center mt-5">
+        <thead>
+          <tr>
+            <th>ジャンル検索</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="pt-3">ケーキ</td></tr>
+          <tr><td class="pt-3">焼き菓子</td></tr>
+          <tr><td class="pt-3">プリン</td></tr>
+          <tr><td class="pt-3">キャンディ</td></tr>
+        </tbody>
+      </table>
     </div>
-    <div class='col-md-8 offset-md-1'>
-      <div>
-        <p>ようこそ、ながのCAKEへ！<br>このサイトは、ケーキ販売のECサイトになります。<br>会員でない方も商品の閲覧はできますが、<br>購入には会員登録が必要になります。</p>
+    <div class='col-md-10'>
+      <small class="pm-1">このサイトは、ケーキ販売のecサイトになります。<br>会員でない方も商品の閲覧はできますが、購入には会員登録が必要になります。</small>
+      <div class="background d-flex align-items-center mb-3">
+        <div>
+          <h1 class="pl-3">Nagano Cake</h1>
+        </div>
       </div>
-      
-      <h2>新着商品</h2>
-      <div class='new-items'>
-          <!--><= item.each do |item|> -->
-        <div>
-          <!--< attachment_image_tag(item.image_id)-->
+
+      <div>
+        <h4>新着商品</h4>
+        <div class='row new-items'>
+          <div class="col-md-3">
+            <%= image_tag"cake.jpg", size: "150x120" %>
+            <p>ケーキ<br>¥ 1,200</P>
+          </div>
+          <div class="col-md-3">
+            <%= image_tag"cake.jpg", size: "150x120" %>
+            <p>ケーキ<br>¥ 1,200</P>
+          </div>
+          <div class="col-md-3">
+            <%= image_tag"cake.jpg", size: "150x120" %>
+            <p>ケーキ<br>¥ 1,200</P>
+          </div>
+          <div class="col-md-3">
+            <%= image_tag"cake.jpg", size: "150x120" %>
+            
+          </div>
         </div>
-        <div>
-          <!--< item.name >-->
-        </div>
-        <div>
-          <!--<= item.price >-->
-        </div>
-        <!--< end >-->
-        <!--<= link_to '全ての商品を見る', items_path >-->
       </div>
     <div>
   </div>

@@ -16,3 +16,39 @@
 
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+
+.background {
+  margin: 0;
+  padding: 0;
+  height: 400px;
+  background-image: image-url('istockphoto-1255426185-170667a.jpg');
+  background-repeat: none;
+  background-size: cover;
+  background-position: center;
+  opacity: .9;
+  color: #fff;
+  font-family: 'Great Vibes', cursive;
+}
+
+.shop-image {
+  margin: 50px auto;
+  padding: 0;
+  width: 300px;
+  height: 200px;
+  background-image: image-url('shop.jpg');
+  background-repeat: none;
+  background-size: cover;
+  background-position: center;
+}
+
+.title {
+  font-family: 'Great Vibes', cursive;
+}
+
+.navbar-nav > li + li {
+    padding: 0 25px;
+}
+
+ul li:last-child {
+    padding-right: 0;
+}
