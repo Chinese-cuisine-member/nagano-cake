@@ -18,10 +18,12 @@ class Public::OrdersController < ApplicationController
      OrderDetail.create(
        item: carts_item.item,
        order: @order,
-       quantity: carts_item.quantity
-       amount_price: 
+       quantity: carts_item.quantity,
+       amount_price: (carts_item.item.price * 1.1).floor
        )
    end
+   
+   @carts_items.destroy_all
   end
   
   def show
