@@ -7,13 +7,17 @@ class Public::CartsItemsController < ApplicationController
   
   def create
     @carts_item = current_customer.carts_items.new(carts_item_params) 
+    if Item.find_by(name: )
   end
   
   def update
+    @carts_item.update(quantity: params[:carts_item][:quantity].to_i)
+    redirect_to carts_items_path
   end
   
   def destroy
-    
+    @carts_item.destroy
+    redirect_to request.referer
   end
   
   def destroy_all
