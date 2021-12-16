@@ -13,14 +13,14 @@
         <ul class="navbar-nav ml-auto">
         <% if customer_signed_in? %>
           <li></li>
-          <li>マイページ<!--<= link_to 'マイページ', customer_path(current_user),class: 'nav-link' >--></li>
-          <li>商品一覧<!--<= link_to '商品一覧', items_path,class: 'nav-link' >--></li>
-          <li>カート<!--<= link_to 'カート', cart_item_path , class: 'nav-link'>--></li>
+          <li><%= link_to 'マイページ', customer_path(current_user),class: 'nav-link' %></li>
+          <li><%= link_to '商品一覧', items_path,class: 'nav-link' %></li>
+          <li><%= link_to 'カート', cart_item_path , class: 'nav-link'%></li>
           <li><%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class: 'nav-link' %></li>
         <% else %>
           <li></li>
           <li><%= link_to 'About', about_path, class: 'nav-link' %></li>
-          <li>商品一覧<!--<= link_to '商品一覧', items_path, class: 'nav-link' %>--></li>
+          <li><%= link_to '商品一覧', items_path, class: 'nav-link' %></li>
           <li><%= link_to '新規登録', new_customer_registration_path, class: 'nav-link' %></li>
           <li><%= link_to 'ログイン', new_customer_session_path, class: 'nav-link' %></li>
         <% end %>
