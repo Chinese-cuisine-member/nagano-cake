@@ -21,7 +21,7 @@
           <% @items.each do |item| %>
           <div class="col-md-3">
             <%= attachment_image_tag item, :image, :fill, 150, 120, fallback: "no_image.jpg", class:""; %>
-            <p><%= item.name %><br>¥<%= item.price %></p>
+            <p><%= link_to item.name, item_path(item.id) %><br>¥<%= item.price %></p>
           </div>
           <% end %>
         </div>
