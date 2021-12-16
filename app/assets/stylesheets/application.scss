@@ -52,3 +52,7 @@
 ul li:last-child {
     padding-right: 0;
 }
+
+.table-height > tbody > tr {
+  line-height: 40px;
+}

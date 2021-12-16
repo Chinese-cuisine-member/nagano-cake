@@ -1,28 +1,48 @@
-<h3>商品詳細</h3>
-<div class="image">
-  <%= attachment_image_tag @item, :image, :fill, 60, 60, fallback: "no_image.jpg", class:""; %>
+<div class="container-fluid py-5">
+  <h3 class="pl-5 pb-5">商品詳細</h3>
+  <div class="row">
+    <div class="col-md-4 offset-md-1">
+      <div class="image">
+        <%= attachment_image_tag @item, :image, :fill, 60, 60, fallback: "nophoto_thumbnail.png" %>
+      </div>
+    </div>
+    <div class="col-md-7">
+      <table class="table-height" style="width: 300px;">
+        <tbody>
+          <tr>
+            <td class="my-2">商品名</td>
+            <td><%= @item.name%></td>
+          </tr>
+          <tr>
+            <td>商品説明</td>
+            <td><%= @item.explanation %></td>
+          </tr>
+          <tr>
+            <td>ジャンル</td>
+            <td><%= @item.genre.name %></td>
+          </tr>
+          <tr>
+            <td>税込価格<br>(税抜価格)</td>
+            <td><%= (@item.price*1.1).round %>(<%= @item.price%>)円</td>
+          </tr>
+          <tr>
+            <td>販売ステータス</td>
+            <td>
+              <% if @item.is_active = "true" %>
+                <p class="font-weight-bold text-info mb-0">販売中</p>
+              <% else %>
+                <p class="font-weight-bold text-danger mb-0">販売停止中</p>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" class="text-center">
+              <%= link_to '編集する', edit_admin_item_path(@item), class: "btn btn-success px-5 my-4"%>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
-<table>
-  <tbody>
-    <tr>
-      <td>商品名</td>
-      <td><%= @item.name%></td>
-    </tr>
-    <tr>
-      <td>商品説明</td>
-      <td><%= @item.explanation%></td>
-    </tr>
-    <tr>
-      <td>ジャンル</td>
-      <td><%= @item.genre%></td>
-    </tr>
-    <tr>
-      <td>税込価格<br>(税抜価格)</td>
-      <td><%= @item.price%></td>
-    </tr>
-    <tr>
-      <td>販売ステータス</td>
-      <td><%= @item.is_active%></td>
-    </tr>
-  </tbody>
-</table>
+
