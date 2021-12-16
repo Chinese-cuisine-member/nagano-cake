@@ -43,4 +43,11 @@
 
 .title {
   font-family: 'Great Vibes', cursive;
+
+.navbar-nav > li + li {
+    padding: 0 25px;
+}
+
+ul li:last-child {
+    padding-right: 0;
 }
