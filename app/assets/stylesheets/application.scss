@@ -16,3 +16,16 @@
 
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+
+.background {
+  margin: 0;
+  padding: 0;
+  height: 400px;
+  background-image: image-url('istockphoto-1255426185-170667a.jpg');
+  background-repeat: none;
+  background-size: cover;
+  background-position: center;
+  opacity: .9;
+  color: #fff;
+  font-family: 'Great Vibes', cursive;
+}
