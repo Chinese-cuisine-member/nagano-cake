@@ -2,6 +2,6 @@ class Ship < ApplicationRecord
   belongs_to :customer
   
   def full_address
-    '〒' + postal_code + ' ' + address + ' ' + name
+    '〒' + zipcode + ' ' + address + ' ' + name
   end
 end
