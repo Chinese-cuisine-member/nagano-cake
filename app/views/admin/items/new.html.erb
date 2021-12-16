@@ -1,0 +1,18 @@
+<%= form_with model:@item, url:admin_items_path, local:true do |f| %>
+          商品画像<%= f.attachment_field :image, class: "" %>
+
+          商品名<%= f.text_field :name, class:"form-control", placeholder:"商品名" %>
+
+          商品説明<%= f.text_area :explanatiion, class:"form-control", placeholder:"商品説明" %>
+
+          ジャンル<%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name) %>
+
+          税抜価格<%= f.text_field :price, class:"form-control", placeholder:"1000" %>円
+
+          販売ステータス<%= f.radio_button :is_active, "true" %>
+          <%= f.label :is_activ, "販売中" %>
+          <%= f.radio_button :is_active, "false" %>
+          <%= f.label :is_activ, "販売停止中" %>
+
+          <%= f.submit '新規登録', class:"" %>
+        <% end %>
