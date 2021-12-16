@@ -32,11 +32,25 @@ class Public::OrdersController < ApplicationController
   end
   
   def confirm
-    @cart_items = current_customer.carts_items
-    @order = Order.new(customer: current_customer,
-    payment_method: params[:order][:payment_method]
-    )
+    @carts_items = current_customer.carts_items
+    
     @order = Order.new(order_params)
+    if params[:address_button] == 'my_address'
+      @order.zipcode = current_customer.zipcode
+      @order.address = current_customer.address
+      @order.name = current_customer.first_name + current_customer.last_name
+    elsif params[:address_button] == 'saved_address'
+      @ship = Ship.find(params[:order][:ship_id])
+      @order.zipcode = @ship.zipcode
+      @order.address = @ship.address
+      @order.name = @ship.name
+    end
+    
+    @total_payment = 0
+    @carts_items.each do |carts_item|
+      @total_payment += carts_item.subtotal
+    end
+    @total_payment += 
   end
   
   def complete

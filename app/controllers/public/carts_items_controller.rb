@@ -3,6 +3,11 @@ class Public::CartsItemsController < ApplicationController
   
   def index
     @carts_items = current_customer.carts_items.all
+    
+    @total_price = 0
+    @carts_items.each do |carts_item|
+      @total_price += carts_item.subtotal
+    end
   end
   
   def create
