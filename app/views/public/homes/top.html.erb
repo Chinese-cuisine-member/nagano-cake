@@ -26,22 +26,12 @@
       <div>
         <h4>新着商品</h4>
         <div class='row new-items'>
+          <% @items.each do |item| %>
           <div class="col-md-3">
-            <%= image_tag"cake.jpg", size: "150x120" %>
-            <p>ケーキ<br>¥ 1,200</P>
+            <%= attachment_image_tag item, :image, fallback: "nophoto_thumbnail.png", size: "150x120" %>
+            <p><%= item.name %><br>¥ <%= item.price %></P>
           </div>
-          <div class="col-md-3">
-            <%= image_tag"cake.jpg", size: "150x120" %>
-            <p>ケーキ<br>¥ 1,200</P>
-          </div>
-          <div class="col-md-3">
-            <%= image_tag"cake.jpg", size: "150x120" %>
-            <p>ケーキ<br>¥ 1,200</P>
-          </div>
-          <div class="col-md-3">
-            <%= image_tag"cake.jpg", size: "150x120" %>
-
-          </div>
+          <% end %>
         </div>
       </div>
     <div>
