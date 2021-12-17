@@ -6,11 +6,8 @@
         <thead class="thead-light">
           <tr>
             <th>会員ID</th>
-            <th colspan="2">指名</th>
-            <th></th>
+            <th>氏名</th>
             <th>メールアドレス</th>
-            <th colspan="2">ステータス</th>
-            <th></th>
             <th>ステータス</th>
           </tr>
         </thead>
@@ -20,21 +17,17 @@
               <td>
                 <%= customer.id %>
               </td>
-              <td colspan="2">
+              <td>
                 <%= link_to customer.last_name + customer.first_name, admin_customer_path(customer), class: "text-dark" %>
               </td>
-              <td></td>
               <td>
                 <%= customer.email %>
               </td>
-              <td colspan="2">
-              </td>
-              <td></td>
               <td>
                 <% if customer.is_deleted = "false" %>
                   <p class="font-weight-bold text-info mb-0">有効</p>
                 <% else %>
-                  <p class="font-weight-bold text-danger mb-0">退会</p>
+                  <p class="font-weight-bold text-secondary mb-0">退会</p>
                 <% end %>
               </td>
             </tr>
