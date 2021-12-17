@@ -1,4 +1,5 @@
 class Public::CartsItemsController < ApplicationController
+  before_action :authenticate_customer!
   before_action :set_carts_item, only: %i[update destroy]
 
   def index
