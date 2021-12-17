@@ -50,7 +50,7 @@ class Public::OrdersController < ApplicationController
     @carts_items.each do |carts_item|
       @total_payment += carts_item.subtotal
     end
-    @total_payment += 
+    @amount_billed = @total_payment + @order.shipping_cost
   end
   
   def complete
