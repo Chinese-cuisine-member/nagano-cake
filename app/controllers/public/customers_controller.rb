@@ -1,4 +1,5 @@
 class Public::CustomersController < ApplicationController
+  before_action :authenticate_customer!
   before_action :set_customer, only: %i[show edit update withdraw]
   
   def show
