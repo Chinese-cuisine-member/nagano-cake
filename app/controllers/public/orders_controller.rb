@@ -43,7 +43,7 @@ class Public::OrdersController < ApplicationController
       @order.address = current_customer.address
       @order.name = current_customer.first_name + current_customer.last_name
     elsif params[:order][:address_button] == 'saved_address'
-      @ship = Ship.find(params[:ship_id])
+      @ship = Ship.find(ship_params[:ship_id])
       @order.zipcode = @ship.zipcode
       @order.address = @ship.address
       @order.name = @ship.name
@@ -63,6 +63,6 @@ class Public::OrdersController < ApplicationController
   end
 
   def ship_params
-    params.require(:ship).permit(:ship_id)
+    params.require(:order).permit(:ship_id)
   end
 end
