@@ -30,6 +30,7 @@ scope module: :public do
   resources :ships, except: %i[new show]
 
   resources :orders, except: %i[update destroy]
+  post 'orders/confirm' => 'orders#confirm'
   get 'orders/complete' => 'orders#complete'
 
   resources :carts_items, except: %i[show edit new]
