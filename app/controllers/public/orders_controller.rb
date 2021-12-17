@@ -38,6 +38,7 @@ class Public::OrdersController < ApplicationController
     @carts_items = current_customer.carts_items
 
     @order = Order.new(order_params)
+    @order.payment_method = params[:order][:payment_method].to_i
     if params[:order][:address_button] == 'my_address'
       @order.zipcode = current_customer.zipcode
       @order.address = current_customer.address
@@ -59,7 +60,7 @@ class Public::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:zipcode, :address, :name, :payment_method, :payment)
+    params.require(:order).permit(:zipcode, :address, :name, :payment)
   end
 
   def ship_params
