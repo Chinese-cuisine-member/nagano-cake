@@ -1,20 +1,22 @@
-<h2>配送先編集</h2>
-<div class="container">
-    <table>
-      <%= form_with model:@ship, url:ship_path(@ship), local:true do |f| %>
-      <tr>
-        <td>郵便番号(ハイフンなし)</td>
-        <td><%= f.text_field :zipcode, autofocus: true, class: "" %></td>
-      </tr>
-      <tr>
-        <td>住所</td>
-        <td><%= f.text_field :address, class: "" %></td>
-      </tr>
-      <tr>
-        <td>宛名</td>
-        <td><%= f.text_field :name, class: "" %></td>
-        <td><%= f.submit "変更内容保存" %></td>
-      </tr>
-      <% end %>
-    </table>
+<div class="container py-5">
+  <h2>配送先編集</h2>
+  <div class="col-10 offset-1 pt-3">
+      <table class="form-group"style="width: 100" %>
+        <%= form_with model:@ship, url:ship_path(@ship), local:true do |f| %>
+        <tr>
+          <td>郵便番号(ハイフンなし)</td>
+          <td><%= f.text_field :zipcode, autofocus: true, placeholder: "0000000", size: "20"%></td>
+        </tr>
+        <tr>
+          <td>住所</td>
+          <td><%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", size: "50" %></td>
+        </tr>
+        <tr>
+          <td>宛名</td>
+          <td><%= f.text_field :name, placeholder: "令和道子", size: "20" %></td>
+          <td><%= f.submit "変更内容を保存", class: "btn btn-info px-3 ml-3"%></td>
+        </tr>
+        <% end %>
+      </table>
+  </div>
 </div>
