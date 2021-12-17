@@ -6,7 +6,7 @@ class Public::CartsItemsController < ApplicationController
   end
 
   def create
-    @carts_item = current_customer.carts_item.new(carts_item_params)
+    @carts_item = current_customer.carts_items.new(carts_item_params)
     @update_carts_item = CartsItem.find_by(item: @carts_item.item)
     if @update_carts_item.present? && @carts_item.valid?
       @carts_item.quantity += @update_carts_item.quantity
