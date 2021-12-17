@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col">
+    <h5>注文情報確認</h5>
+    <thead>
+      <tr>
+        <th colspan="6">商品名</th>
+        <th colspan="2">単価(税込)</th>
+        <th>個数</th>
+        <th>小計</th>
+      </tr>
+    </thead>
+    <table>
+    <% @order_details.each do |order_detail| %>
+      <tr>
+        <td colspan="6"><%= order_detail.item.name %></td>
+        <td colspan="2"><%= order_detail.item.price %></td>
+        <td><%= @order_detail.quantity %></td>
+        <td><%= order_detail.item.price %>*<%= @order_detail.quantity %></td>
+      </tr>
+    <% end %>
+    </table>
+  </div>
+  <div class="col">
+    <table>
+      <tr>
+        <td>送料</td>
+        <td><%= @order.shipping_cost %></td>
+      </tr>
+      <tr>
+        <td>商品合計</td>
+        <td><%= @total_payment %></td>
+      </tr>
+      <tr>
+        <td>請求金額</td>
+        <td><%= @amount_billed %></td>
+      </tr>
+    </table>
+    <%= form_with model: @order, url:, local: true do |f| %>
+      <%= f.hidden_field :name %>
+      <%= f.hidden_field :address %>
+      <%= f.hidden_field :total_price, value: @total %>
+      <%= f.submit "注文を確定する" %>
+    <% end %>
+  </div>
+</div>
