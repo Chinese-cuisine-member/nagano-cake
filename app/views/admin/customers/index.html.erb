@@ -21,7 +21,7 @@
                 <%= customer.id %>
               </td>
               <td colspan="2">
-                <%= link_to customer.name, admin_customer_path(customer.id), class: "text-dark" %>
+                <%= link_to customer.last_name + customer.first_name, admin_customer_path(customer), class: "text-dark" %>
               </td>
               <td></td>
               <td>
