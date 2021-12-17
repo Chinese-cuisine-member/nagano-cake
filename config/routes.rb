@@ -15,7 +15,7 @@ namespace :admin do
   resources :genres, only: %i[create index edit update]
   resources :orders, only: %i[show index update]
   resources :order_details, only: %i[update]
-  get 'admin' => 'homes#top'
+  get '/' => 'homes#top'
 end
 
 scope module: :public do
