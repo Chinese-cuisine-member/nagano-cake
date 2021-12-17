@@ -23,17 +23,13 @@ class Public::CartsItemsController < ApplicationController
   end
 
   def update
+    @carts_item = CartsItem.find(params[:id])
     @carts_item.update(quantity: params[:carts_item][:quantity].to_i)
     redirect_to carts_items_path
   end
 
   def destroy
     @carts_item.destroy
-    redirect_to request.referer
-  end
-
-  def destroy_all
-    current_customer.carts_items.destroy_all
     redirect_to carts_items_path
   end
 
@@ -42,7 +38,7 @@ class Public::CartsItemsController < ApplicationController
   def carts_item_params
     params.require(:carts_item).permit(:item_id, :quantity)
   end
-
+  
   def set_carts_item
     @carts_item = CartsItem.find(params[:id])
   end

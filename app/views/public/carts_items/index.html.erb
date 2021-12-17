@@ -3,7 +3,7 @@
   <div class="col">
     <% if @carts_items.present? %>
     <div>
-      <%= link_to "カートをからにする", cart_items_destroy_all_path, method: :delete %>
+      <%= button_to "カートを空にする", destroy_all_path, class:"btn btn-danger", method: :delete %>
     </div>
     <% end %>
 
@@ -28,13 +28,13 @@
             <td></td>
             <td>
               <%= form_with model:carts_item, url:carts_item_path(carts_item.id), method: :patch, local:true do |f| %>
-                <%= f.hidden_field :item_id, value :item.id %>
+
                 <%= f.select :quantity, options_for_select(((1..10).to_a)) %>
                 <%= f.submit "変更" %>
           　　<% end %>
           　</td>
             <td></td>
-            <td><%= link_to "削除する", carts_items_path(carts_item.id), method: :delete %></td>
+            <td><%= link_to "削除する", carts_item_path(carts_item.id), method: :delete %></td>
           </tr>
         <% end %>
       <% else %>

@@ -33,7 +33,7 @@ scope module: :public do
   get 'orders/complete' => 'orders#complete'
 
   resources :carts_items, except: %i[show edit new]
-  delete 'carts_items/destroy_all' => 'carts_items#destroy_all'
+  delete 'destroy_all' => 'homes#destroy_all'
 
   resources :items, only: %i[index show]
 end
