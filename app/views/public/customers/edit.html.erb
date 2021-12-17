@@ -1,0 +1,53 @@
+<div class="container-fluid py-5">
+  <div class="row">
+    <div class="col-7 offset-1">
+    <h3 class="pb-5">会員情報編集</h3>
+      <table class="table-height form" style="width: 100%;">
+        <tbody>
+          <%= form_with model: @customer, url: customer_path(@customer), class: 'new_customer', local: true do |f| %>
+          <tr>
+            <td>名前</td>
+            <td><%= f.text_field :last_name, autofocus: true, class: "last_name table-form", size: "30" %></td>
+            <td><%= f.text_field :first_name, class: "first_name table-form", size: "30" %></td>
+          </tr>
+          <tr>
+            <td>フリガナ</td>
+            <td><%= f.text_field :last_name_kana, class: "last_name_kana table-form", size: "30" %></td>
+            <td><%= f.text_field :first_name_kana, class: "first_name_kana table-form", size: "30" %></td>
+          </tr>
+          <tr>
+            <td>郵便番号</td>
+            <td><%= f.text_field :zipcode, class: "zipcode table-form", size: "30" %></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>住所</td>
+            <td colspan="2"><%= f.text_field :address, class: "address table-form", size: "70" %></td>
+          </tr>
+          <tr>
+            <td>電話番号</td>
+            <td><%= f.text_field :phone_number, class: "phone_number table-form", size: "30" %></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>メールアドレス</td>
+            <td><%= f.email_field :email, autocomplete: "email", class: "table-form", size: "30" %></td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              <div class="actions text-center">
+              <%= f.submit "編集内容を保存", class: "btn btn-success px-5 my-3" %>
+              </div>
+            </td>
+            <td>
+              <div>
+                <%= link_to '退会する', customers_unsubscribe_path, class:'btn btn-danger px-3 my-3' %>
+              </div>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
