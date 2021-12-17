@@ -4,7 +4,7 @@ class Public::CartsItemsController < ApplicationController
 
   def index
     @carts_items = current_customer.carts_items.all
-    
+
     @total_price = 0
     @carts_items.each do |carts_item|
       @total_price += carts_item.subtotal
@@ -39,12 +39,17 @@ class Public::CartsItemsController < ApplicationController
     redirect_to carts_items_path
   end
 
+  def destroy_all
+    current_customer.carts_items.destroy_all
+    redirect_to carts_items_path
+  end
+
   private
 
   def carts_item_params
     params.require(:carts_item).permit(:item_id, :quantity)
   end
-  
+
   def set_carts_item
     @carts_item = CartsItem.find(params[:id])
   end
