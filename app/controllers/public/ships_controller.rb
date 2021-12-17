@@ -1,7 +1,7 @@
 class Public::ShipsController < ApplicationController
   before_action :set_ship, only: %i[edit update destroy]
   def index
-    @ships = current_customer.ship
+    @ships = current_customer.ships.all
     @ship = Ship.new
   end
   
