@@ -1,10 +1,8 @@
 <div class="container-fluid py-5">
   <h3 class="pl-5 pb-5"><%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細</h3>
   <div class="row">
-    <div class="col-md-4 offset-md-1">
-    </div>
-    <div class="col-md-7">
-      <table class="table-height" style="width: 300px;">
+    <div class="col-10 offset-1">
+      <table class="table-height" style="width: 100%;">
         <tbody>
           <tr>
             <td class="my-2">会員ID</td>
@@ -19,19 +17,19 @@
             <td><%= @customer.last_name_kana %><%= @customer.first_name_kana %></td>
           </tr>
           <tr>
-            <td><br>郵便番号</td>
+            <td>郵便番号</td>
             <td><%= @customer.zipcode %></td>
           </tr>
           <tr>
-            <td><br>住所</td>
+            <td>住所</td>
             <td><%= @customer.address %></td>
           </tr>
           <tr>
-            <td><br>電話番号</td>
+            <td>電話番号</td>
             <td><%= @customer.phone_number %></td>
           </tr>
           <tr>
-            <td><br>メールアドレス</td>
+            <td>メールアドレス</td>
             <td><%= @customer.email %></td>
           </tr>
           <tr>
@@ -46,7 +44,7 @@
           </tr>
           <tr>
             <td colspan="2" class="text-center">
-              <%= link_to '編集する', edit_admin_customer_path(@customer), class: "btn btn-success px-5 my-4"%>
+              <%= link_to '編集する', edit_admin_customer_path(@customer), class: "btn btn-info px-5 my-4"%>
             </td>
             <td>
               <%= link_to '注文履歴一覧', admin_orders_path, class: "btn btn-success px-5 my-4"%>
