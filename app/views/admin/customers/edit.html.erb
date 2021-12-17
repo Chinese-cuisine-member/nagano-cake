@@ -1,8 +1,8 @@
 <div class="container-fluid py-5">
   <div class="row">
-    <div class="col-6 offset-3">
-    <h2 class="pb-5">新規会員登録</h2>
-      <table class="table">
+    <div class="col-7 offset-1">
+    <h3 class="pb-5"><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</h3>
+      <table class="table-height form" style="width: 100%;">
         <tbody>
           <%= form_with model: @customer, url: admin_customer_path(@customer), class: 'new_customer', local: true do |f| %>
           <tr>
@@ -12,42 +12,41 @@
           </tr>
           <tr>
             <td>名前</td>
-            <td><%= f.text_field :last_name, autofocus: true, class: "last_name" %></td>
-            <td><br><%= f.text_field :first_name, class: "first_name" %></td>
+            <td><%= f.text_field :last_name, autofocus: true, class: "last_name table-form", size: "30" %></td>
+            <td><%= f.text_field :first_name, class: "first_name table-form", size: "30" %></td>
           </tr>
           <tr>
             <td>フリガナ</td>
-            <td>(セイ)<br><%= f.text_field :last_name_kana, class: "last_name_kana" %></td>
-            <td>(メイ)<br><%= f.text_field :first_name_kana, class: "first_name_kana" %></td>
+            <td><%= f.text_field :last_name_kana, class: "last_name_kana table-form", size: "30" %></td>
+            <td><%= f.text_field :first_name_kana, class: "first_name_kana table-form", size: "30" %></td>
           </tr>
           <tr>
             <td>郵便番号</td>
-            <td><%= f.text_field :zipcode, class: "zipcode" %></td>
+            <td><%= f.text_field :zipcode, class: "zipcode table-form", size: "30" %></td>
             <td></td>
           </tr>
           <tr>
             <td>住所</td>
-            <td colspan="2"><%= f.text_field :address, class: "address" %></td>
+            <td colspan="2"><%= f.text_field :address, class: "address table-form", size: "70" %></td>
           </tr>
           <tr>
-            <td>電話番号<br>(ハイフンなし)</td>
-            <td><%= f.text_field :phone_number, class: "phone_number" %></td>
+            <td>電話番号</td>
+            <td><%= f.text_field :phone_number, class: "phone_number table-form", size: "30" %></td>
             <td></td>
           </tr>
           <tr>
             <td>メールアドレス</td>
-            <td><%= f.email_field :email, autocomplete: "email" %></td>
-            <td></td>
+            <td><%= f.email_field :email, autocomplete: "email", class: "table-form", size: "30" %></td>
           </tr>
          <tr>
            <td>会員ステータス</td>
-              <td>
-                <%= f.radio_button :is_deleted, "false" %>
-                <%= f.label :is_deleted, "有効" %>
-              </td>
-              <td>
+              <td colspan="2">
+                <%= f.radio_button :is_deleted, "false", class: "bg-dark" %>
+                <%= f.label :is_deleted, "有効", class: "mr-3" %>
                 <%= f.radio_button :is_deleted, "true" %>
                 <%= f.label :is_deleted, "退会" %>
+              </td>
+              <td>
               </td>
          </tr>
           <tr>
