@@ -50,7 +50,7 @@ class Public::OrdersController < ApplicationController
     @carts_items.each do |carts_item|
       @total_payment += carts_item.subtotal
     end
-    @total_payment += 
+    @total_payment += 800
   end
   
   def complete
