@@ -2,6 +2,7 @@ class Public::CustomersController < ApplicationController
   before_action :set_customer, only: %i[show edit update withdraw]
   
   def show
+    
   end
   
   def edit
