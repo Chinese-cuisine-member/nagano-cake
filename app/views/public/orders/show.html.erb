@@ -13,11 +13,11 @@
       </tr>
       <tr>
         <td>支払方法</td>
-        <td colspan="4"><%= @order.payment_method %></td>
+        <td colspan="4"><%= @order.payment_method_i18n %></td>
       </tr>
       <tr>
         <td>ステータス</td>
-        <td colspan="4"><%= @order.status %></td>
+        <td colspan="4"><%= @order.status_i18n %></td>
       </tr>
     </table>
   </div>
@@ -50,12 +50,12 @@
     </tr>
   </thead>
   <table>
-    <% @order_details.each do |order_detail| %>
+    <% @order_detail.each do |order_detail| %>
     <tr>
       <td colspan="6"><%= order_detail.item.name %></td>
       <td colspan="2"><%= order_detail.item.price %></td>
-      <td><%= @order_detail.quantity %></td>
-      <td><%= order_detail.item.price %>*<%= @order_detail.quantity %></td>
+      <td><%= order_detail.quantity %></td>
+      <td><%= order_detail.item.price * order_detail.quantity %></td>
     </tr>
     <% end %>
   </table>
