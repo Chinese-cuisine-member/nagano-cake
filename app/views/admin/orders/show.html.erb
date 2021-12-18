@@ -1,0 +1,78 @@
+<div class="container-fluid py-5">
+  <h3 class="pl-5 pb-5">注文履歴詳細</h3>
+  <div class="row">
+    <div class="col-10 offset-1">
+      <table class="table-height" style="width: 100%;">
+        <tbody>
+          <tr>
+            <td>購入者</td>
+            <td><%= @order.customer.last_name %><%= @order.customer.first_name %></td>
+          </tr>
+          <tr>
+            <td>注文日</td>
+            <td><%= @order.created_at %></td>
+          </tr>
+          <tr>
+            <td>配送先</td>
+            <td><%= @order.customer.address %></td>
+          </tr>
+          <tr>
+            <td>支払方法</td>
+            <% if @order.payment_method = :creditcard %>
+            <td><p class="font-weight-bold">クレジットカード</p></td>
+            <% elsif @order.payment_method = :bank %>
+            <td><p class="font-weight-bold">銀行振込</p></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td>注文ステータス</td>
+            <td>
+              
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-10 offset-1">
+      <table>
+        <thead>
+          <tr>
+            <th>商品</th>
+            <th>単価(税込)</th>
+            <th>数量</th>
+            <th>小計</th>
+            <th>制作ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @order_details.each do |order_detail| %>
+          <tr>
+            <td><%= order_detail.item.name %></td>
+            <td><%= order_detail.item.price %></td>
+            <td><%= order_detail.quantity %></td>
+            <td>(<%= order_detail.item.price %>).to_i*(<%= order_detail.quantity %>).to_i</td>
+            <td></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col">
+    <h5>請求情報</h5>
+      <table>
+        <tr>
+          <td>商品合計</td>
+          <td><%= @amount_billed %></td>
+        </tr>
+        <tr>
+          <td>配送料</td>
+          <td><%= @order.shipping_cost %></td>
+        </tr>
+        <tr>
+          <td>ご請求額</td>
+          <td><%= @amount_billed %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
