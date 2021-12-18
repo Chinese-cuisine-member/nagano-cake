@@ -24,7 +24,7 @@ scope module: :public do
 
   resources :customers, only: %i[edit update]
   get 'customers/my_page' => 'customers#show'
-  patch 'customers/withdraw' => 'customers#withdraw'
+  patch 'withdraw/customers' => 'customers#withdraw', as: :customers_withdraw
   get 'customers/unsubscribe' => 'customers#unsubscribe'
 
   resources :ships, except: %i[new show]
