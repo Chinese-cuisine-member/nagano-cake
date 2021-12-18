@@ -30,10 +30,11 @@ scope module: :public do
   resources :ships, except: %i[new show]
 
   resources :orders, except: %i[update destroy]
-  get 'orders/complete' => 'orders#complete'
+  post 'confirm/orders' => 'orders#confirm', as: :orders_confirm
+  get 'complete/orders' => 'orders#complete', as: :orders_complete
 
   resources :carts_items, except: %i[show edit new]
-  delete 'destroy_all' => 'homes#destroy_all'
+  delete 'destroy_all/carts_items' => 'carts_items#destroy_all', as: :carts_items_destroy_all
 
   resources :items, only: %i[index show]
 end
