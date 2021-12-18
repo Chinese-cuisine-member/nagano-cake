@@ -32,6 +32,12 @@ class Public::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @order_details = OrderDetail.where(order_id: params[:id])
+    @total_payment = 0
+    @order_details.each do |order_detail|
+      @total_payment += order_detail.item.with_tax_price * order_detail.quantity
+    end
+    @amount_billed = @total_payment + @order.shipping_cost
+
   end
 
   def confirm
