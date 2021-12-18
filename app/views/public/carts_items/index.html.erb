@@ -5,7 +5,7 @@
 
       <% if @carts_items.present? %>
       <div class="text-right">
-        <%= button_to "カートを空にする", destroy_all_path, class:"btn btn-danger btn-sm", method: :delete %>
+        <%= button_to "カートを空にする", carts_items_destroy_all_path, class:"btn btn-danger btn-sm", method: :delete %>
       </div>
       <% end %>
       <table class="table my-3">
@@ -27,8 +27,7 @@
                 <%= carts_item.item.name %>
               </td>
               <td>
-                <% subtotal = (carts_item.item.price*1.1).round %>
-                <%= subtotal %>
+                <%=carts_item.subtotal %>
               </td>
               <td>
                 <%= form_with model:carts_item, url:carts_item_path(carts_item.id), method: :patch, local:true do |f| %>
@@ -37,7 +36,7 @@
             　　<% end %>
             　</td>
               <td>
-                <%= subtotal * carts_item.quantity %>
+                <%= carts_item.subtotal * carts_item.quantity %>
               </td>
               <td><%= link_to "削除する", carts_item_path(carts_item.id), method: :delete, class:"btn btn-danger btn-sm" %></td>
             </tr>
