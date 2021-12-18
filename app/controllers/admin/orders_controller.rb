@@ -1,7 +1,7 @@
 class Admin::OrdersController < ApplicationController
   before_action :authenticate_admin!
   before_action :set_order, only: %i[show update]
-  
+
   def index
     @orders = Order.all
   end
@@ -17,13 +17,13 @@ class Admin::OrdersController < ApplicationController
       render 'show'
     end
   end
-  
+
   private
-  
+
   def order_params
     params.require(:order).permit(:status)
   end
-  
+
   def set_order
     @order = Order.find(params[:id])
   end
