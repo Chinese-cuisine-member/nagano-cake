@@ -32,15 +32,16 @@
         </tbody>
       </table>
     </div>
-    <div class="col-10 offset-1">
-      <table>
-        <thead>
+    <div class="col-7 offset-1">
+      <table class="table-height border-top mt-4" style="width: 100%;">
+        <thead class="bg-light">
           <tr>
-            <th>商品</th>
+            <th>商品名</th>
             <th>単価(税込)</th>
             <th>数量</th>
             <th>小計</th>
             <th>制作ステータス</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -50,30 +51,31 @@
             <td><%= order_detail.item.price %></td>
             <td><%= order_detail.quantity %></td>
             <td><%= order_detail.item.with_tax_price * order_detail.quantity %></td>
-            <td>
-              <%= form_with model: order_detail, url: admin_order_detail_path(order_detail), method: :patch, local: true do |f| %>
-              <%= f.select :making_status, OrderDetail.making_statuses.keys.map {|k| [I18n.t("enums.order_detail.making_status.#{k}"), k]}, class: "making_status-select" %>
-              <%= f.submit "更新", class: "btn btn-outline-success" %>
-              <% end %>
-            </td>
+            <%= form_with model: order_detail, url: admin_order_detail_path(order_detail), method: :patch, local: true do |f| %>
+              <td>
+                <%= f.select :making_status, OrderDetail.making_statuses.keys.map {|k| [I18n.t("enums.order_detail.making_status.#{k}"), k]}, class: "making_status-select" %>
+              </td>
+              <td>
+                <%= f.submit "更新", class: "btn btn-outline-success" %>
+              </td>
+            <% end %>
           </tr>
         <% end %>
         </tbody>
       </table>
     </div>
-    <div class="col">
-    <h5>請求情報</h5>
-      <table>
+    <div class="col-2 offset-1">
+      <table class="table-height mt-4" style="width: 100%;">
         <tr>
-          <td>商品合計</td>
+          <td class="font-weight-bold">商品合計</td>
           <td><%= @total_payment %></td>
         </tr>
         <tr>
-          <td>配送料</td>
+          <td class="font-weight-bold">配送料</td>
           <td><%= @order.shipping_cost %></td>
         </tr>
         <tr>
-          <td>ご請求額</td>
+          <td class="font-weight-bold">ご請求額</td>
           <td><%= @amount_billed %></td>
         </tr>
       </table>
