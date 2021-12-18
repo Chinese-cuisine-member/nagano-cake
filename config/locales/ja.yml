@@ -11,8 +11,11 @@
           prepare_shipment: "発送準備中"
           shiped: "発送ずみ"
       order_detail:
-        produciton_status:
+        making_status:
           cannot_make: "着手不可"
           wait_for_making: "制作待ち"
           making: "制作中"
           complete: "制作完了"
+    time:
+      formats:
+        default: "%Y/%m/%d"

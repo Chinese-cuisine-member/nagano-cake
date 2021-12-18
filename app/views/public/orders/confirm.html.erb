@@ -10,12 +10,12 @@
       </tr>
     </thead>
     <table>
-    <% @order_details.each do |order_detail| %>
+    <% @carts_items.each do |carts_item| %>
       <tr>
-        <td colspan="6"><%= order_detail.item.name %></td>
-        <td colspan="2"><%= order_detail.item.price %></td>
-        <td><%= @order_detail.quantity %></td>
-        <td><%= order_detail.item.price %>*<%= @order_detail.quantity %></td>
+        <td colspan="6"><%= carts_item.item.name %></td>
+        <td colspan="2"><%= carts_item.item.price %></td>
+        <td><%= carts_item.quantity %></td>
+        <td><%= carts_item.subtotal %></td>
       </tr>
     <% end %>
     </table>
@@ -35,9 +35,12 @@
         <td><%= @amount_billed %></td>
       </tr>
     </table>
-    <%= form_with model: @order, url:, local: true do |f| %>
+    <%= form_with model: @order, url: orders_path, local: true do |f| %>
       <%= f.hidden_field :name %>
       <%= f.hidden_field :address %>
+      <%= f.hidden_field :zipcode %>
+      <%= f.hidden_field :payment, value: @amount_billed %>
+      <%= f.hidden_field :payment_method %>
       <%= f.hidden_field :total_price, value: @total %>
       <%= f.submit "注文を確定する" %>
     <% end %>

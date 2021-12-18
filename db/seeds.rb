@@ -44,27 +44,27 @@
     )
   end
 
-  6.times do |n|
-    Order.create!(
-      customer_id: n + 1,
-      shipping_cost: 800,
-      address: "東京都渋谷区神南1丁目19-11 パークウェースクエア2 4階#{n + 1}",
-      zipcode: "123456#{n + 1}",
-      name: "test#{n + 1}",
-      payment: 1000 + (n * 1000) +800,
-      payment_method: 0,
-      status: 0
-    )
-  end
+  # 6.times do |n|
+  #   Order.create!(
+  #     customer_id: n + 1,
+  #     shipping_cost: 800,
+  #     address: "東京都渋谷区神南1丁目19-11 パークウェースクエア2 4階#{n + 1}",
+  #     zipcode: "123456#{n + 1}",
+  #     name: "test#{n + 1}",
+  #     payment: 1000 + (n * 1000) +800,
+  #     payment_method: 0,
+  #     status: 0
+  #   )
+  # end
 
-  5.times do |n|
-    OrderDetail.create!(
-      item_id: n + 1,
-      order_id: n + 1,
-      quantity: n + 3,
-      amount_price: 1000 + (n * 1000),
-      making_status: 0
-    )
-  end
+  # 5.times do |n|
+  #   OrderDetail.create!(
+  #     item_id: n + 1,
+  #     order_id: n + 1,
+  #     quantity: n + 3,
+  #     amount_price: 1000 + (n * 1000),
+  #     making_status: 0
+  #   )
+  # end
 
 
