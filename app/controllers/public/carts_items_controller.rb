@@ -20,7 +20,7 @@ class Public::CartsItemsController < ApplicationController
     end
 
     if @carts_item.save
-      redirect_to items_path
+      redirect_to carts_items_path
     else
       @item = Item.find(params[:carts_item][:item_id])
       @carts_item = CartsItem.new
