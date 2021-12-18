@@ -37,7 +37,6 @@ class Public::OrdersController < ApplicationController
       @total_payment += order_detail.item.with_tax_price * order_detail.quantity
     end
     @amount_billed = @total_payment + @order.shipping_cost
-
   end
 
   def confirm
