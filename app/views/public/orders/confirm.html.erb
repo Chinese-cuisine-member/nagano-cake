@@ -1,40 +1,65 @@
-<div class="row">
-  <div class="col">
-    <h5>注文情報確認</h5>
-    <thead>
-      <tr>
-        <th colspan="6">商品名</th>
-        <th colspan="2">単価(税込)</th>
-        <th>個数</th>
-        <th>小計</th>
-      </tr>
-    </thead>
-    <table>
-    <% @carts_items.each do |carts_item| %>
-      <tr>
-        <td colspan="6"><%= carts_item.item.name %></td>
-        <td colspan="2"><%= carts_item.item.price %></td>
-        <td><%= carts_item.quantity %></td>
-        <td><%= carts_item.subtotal %></td>
-      </tr>
-    <% end %>
+<div class="container-fulid mt-5">
+  <h3 class="ml-5 mb-5">注文情報確認</h3>
+  <div class="row">
+    <div class="col-6 offset-1">
+      <table class="table table-bordered">
+        <thead class="bg-light">
+          <tr>
+            <th colspan="6">商品名</th>
+            <th colspan="2">単価(税込)</th>
+            <th>数量</th>
+            <th>小計</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @carts_items.each do |carts_item| %>
+          <tr>
+            <td colspan="6">
+              <%= attachment_image_tag carts_item.item, :image, :fill, 80, 50, fallback: "nophoto_thumbnail.png", size: "80x50", class: "m-2" %>
+              <%= carts_item.item.name %>
+            </td>
+            <td colspan="2"><%= carts_item.item.price %></td>
+            <td><%= carts_item.quantity %></td>
+            <td><%= carts_item.subtotal %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-4">
+      <table class="table table-bordered">
+        <tr>
+          <td class="bg-light">送料</td>
+          <td><%= @order.shipping_cost %></td>
+        </tr>
+        <tr>
+          <td class="bg-light">商品合計</td>
+          <td><%= @total_payment %></td>
+        </tr>
+        <tr>
+          <td class="bg-light">請求金額</td>
+          <td><%= @amount_billed %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="offset-1">
+    <table class="table-height mt-3" style="width: 100%;">
+      <tbody>
+        <tr>
+          <td class="font-weight-bold">支払方法</td>
+          <td><%= @order.payment_method_i18n %></td>
+        </tr>
+        <tr>
+          <td class="font-weight-bold">お届け先</td>
+          <td>
+            <%= @order.zipcode %><%= @order.address %><%= @order.name %>
+          </td>
+        </tr>
+      </tbody>
     </table>
   </div>
-  <div class="col">
-    <table>
-      <tr>
-        <td>送料</td>
-        <td><%= @order.shipping_cost %></td>
-      </tr>
-      <tr>
-        <td>商品合計</td>
-        <td><%= @total_payment %></td>
-      </tr>
-      <tr>
-        <td>請求金額</td>
-        <td><%= @amount_billed %></td>
-      </tr>
-    </table>
+  <div class="text-center mt-5">
     <%= form_with model: @order, url: orders_path, local: true do |f| %>
       <%= f.hidden_field :name %>
       <%= f.hidden_field :address %>
@@ -42,7 +67,7 @@
       <%= f.hidden_field :payment, value: @amount_billed %>
       <%= f.hidden_field :payment_method %>
       <%= f.hidden_field :total_price, value: @total %>
-      <%= f.submit "注文を確定する" %>
+      <%= f.submit "注文を確定する", class: "btn btn-info" %>
     <% end %>
   </div>
 </div>
