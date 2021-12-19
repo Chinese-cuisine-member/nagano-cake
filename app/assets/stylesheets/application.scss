@@ -52,8 +52,6 @@ main {
   font-family: 'Great Vibes', cursive;
 }
 
-
-
 // navbarのボタンの間隔
 .navbar-nav > li + li {
     padding: 0 25px;
@@ -70,6 +68,11 @@ ul li:last-child {
 
 .table-form {
   height: 35px;
+}
+
+//
+.pointer {
+  cursor: pointer;
 }
 
 //logo設定
