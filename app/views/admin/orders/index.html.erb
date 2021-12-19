@@ -19,7 +19,10 @@
               </td>
               <td>
                 <%= link_to admin_order_path(order) do %>
-                  <p><%= order.customer.last_name %><%= order.customer.first_name %></p>
+                  <p>
+                    <%= order.customer.last_name %>
+                    <%= order.customer.first_name %>
+                  </p>
                 <% end %>
               </td>
               <td>
