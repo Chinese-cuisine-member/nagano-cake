@@ -13,6 +13,7 @@ class Public::OrdersController < ApplicationController
 
   def create
     @order = current_customer.orders.new(order_params)
+    @order.payment_method = params[:order][:payment_method].to_i
 
     if @order.save
      @carts_items = current_customer.carts_items

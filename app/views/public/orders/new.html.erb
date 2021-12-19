@@ -15,7 +15,7 @@
         <h5 class="font-weight-bold mt-3">お届け先</h5>
         <div class="ml-5">
           <div class="pb-3">
-            <%= f.radio_button :address_button, "my_address" %>
+            <%= f.radio_button :address_button, "my_address", checked: true %>
             <%= f.label :address_button, "ご自身の住所" %>
             <p class="ml-3"><%= current_customer.address %></p>
           </div>
