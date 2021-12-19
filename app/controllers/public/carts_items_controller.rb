@@ -24,7 +24,8 @@ class Public::CartsItemsController < ApplicationController
     else
       @item = Item.find(params[:carts_item][:item_id])
       @carts_item = CartsItem.new
-      render ("items/show")
+      @genres = Genre.all
+      render "public/items/show"
     end
   end
 

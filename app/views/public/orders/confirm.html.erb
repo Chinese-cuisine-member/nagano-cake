@@ -67,6 +67,7 @@
       <%= f.hidden_field :payment, value: @amount_billed %>
       <%= f.hidden_field :payment_method %>
       <%= f.hidden_field :total_price, value: @total %>
+      <%= f.hidden_field :ship, value: @ship %>
       <%= f.submit "注文を確定する", class: "btn btn-info" %>
     <% end %>
   </div>
