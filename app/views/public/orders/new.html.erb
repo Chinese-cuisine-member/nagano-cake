@@ -5,7 +5,7 @@
       <div class="payment mt-3">
         <h5 class="font-weight-bold">支払方法</h5>
         <div class="payment_method ml-5">
-          <%= f.radio_button :payment_method, 0 %>
+          <%= f.radio_button :payment_method, 0, checked: true %>
           <%= f.label :payment_method, "クレジットカード" %><br>
           <%= f.radio_button :payment_method, 1 %>
           <%= f.label :payment_method, "銀行振込" %>
