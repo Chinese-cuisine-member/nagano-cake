@@ -1,8 +1,12 @@
 <div class="container-fluid py-5">
   <div class="row">
     <div class="col-8 offset-2">
-      <h2 class="pb-5">商品一覧</h2>
-      <%= link_to "新規登録", new_admin_item_path %>
+      <h2 class="pb-2">商品一覧</h2>
+      <div class="item-new-icon text-right mb-3" style="font-size: 20px">
+        <%= link_to new_admin_item_path do %>
+          <i class="fas fa-plus bg-light rounded-circle text-dark p-3"></i>
+        <% end %>
+      </div>
       <table class='table table-hover table-inverse'>
         <thead class="thead-light">
           <tr>
