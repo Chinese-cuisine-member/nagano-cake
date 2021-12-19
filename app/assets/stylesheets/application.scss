@@ -21,10 +21,11 @@ main {
   min-height: 550px;
 }
 
+// topページの画像
 .background {
   margin: 0;
   padding: 0;
-  height: 400px;
+  height: 550px;
   background-image: image-url('istockphoto-1255426185-170667a.jpg');
   background-repeat: none;
   background-size: cover;
@@ -34,6 +35,7 @@ main {
   font-family: 'Great Vibes', cursive;
 }
 
+// aboutページの画像
 .shop-image {
   margin: 50px auto;
   padding: 0;
@@ -45,10 +47,14 @@ main {
   background-position: center;
 }
 
+// topページのタイトルフォント
 .title {
   font-family: 'Great Vibes', cursive;
 }
 
+
+
+// navbarのボタンの間隔
 .navbar-nav > li + li {
     padding: 0 25px;
 }
@@ -57,6 +63,7 @@ ul li:last-child {
     padding-right: 0;
 }
 
+// tableの高さ設定
 .table-height > tbody > tr {
   line-height: 40px;
 }
@@ -65,6 +72,19 @@ ul li:last-child {
   height: 35px;
 }
 
+//logo設定
+.logo-icon {
+  margin: 0;
+  padding: 0;
+  width: 70px;
+  height: 70px;
+  background-image: image-url('logo.png');
+  background-repeat: none;
+  background-size: cover;
+  background-position: center;
+}
+
+//pagenation設定
 .pagination{
     margin: 20px auto 0;
     width: 50%;
