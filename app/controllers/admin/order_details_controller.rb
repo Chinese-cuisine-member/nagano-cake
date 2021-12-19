@@ -23,7 +23,7 @@ class Admin::OrderDetailsController < ApplicationController
     if all_complete == true
       order.update(status: 3)
     end
-    redirect_to admin_orders_path
+    redirect_to admin_order_path(order)
   end
 
   private
