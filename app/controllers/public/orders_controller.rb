@@ -13,20 +13,22 @@ class Public::OrdersController < ApplicationController
 
   def create
     @order = current_customer.orders.new(order_params)
-    @order.save
 
-   @carts_items = current_customer.carts_items
-   @carts_items.each do |carts_item|
-     OrderDetail.create(
-       item: carts_item.item,
-       order: @order,
-       quantity: carts_item.quantity,
-       amount_price: (carts_item.item.price * 1.1).floor
-       )
-   end
-
-   @carts_items.destroy_all
-   redirect_to orders_complete_path
+    if @order.save
+     @carts_items = current_customer.carts_items
+     @carts_items.each do |carts_item|
+       OrderDetail.create(
+         item: carts_item.item,
+         order: @order,
+         quantity: carts_item.quantity,
+         amount_price: (carts_item.item.price * 1.1).floor
+         )
+     end
+     @carts_items.destroy_all
+     redirect_to orders_complete_path
+    else
+     render :new
+    end
   end
 
   def show
