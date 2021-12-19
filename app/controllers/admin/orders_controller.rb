@@ -17,6 +17,12 @@ class Admin::OrdersController < ApplicationController
 
   def update
     if @order.update(order_params)
+      if order_params[:status] == 'confirmed_payment'
+        order_details = OrderDetail.where(order_id: @order.id)
+        order_details.each do |order_detail|
+          order_detail.update(making_status: 1)
+        end
+      end
       redirect_to admin_order_path(@order)
     else
       render 'show'
