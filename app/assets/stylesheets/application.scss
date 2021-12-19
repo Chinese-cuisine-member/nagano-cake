@@ -70,9 +70,15 @@ ul li:last-child {
   height: 35px;
 }
 
-//
+//ポインター
 .pointer {
   cursor: pointer;
+}
+
+#carts_item_quantity {
+  border: none;
+  border-bottom: 1px solid;
+  padding-bottom: 10px;
 }
 
 //logo設定
