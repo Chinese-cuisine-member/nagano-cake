@@ -13,14 +13,12 @@
         </thead>
         <tbody>
           <% @orders.each do |order| %>
-            <tr>
+            <tr onclick='window.location="<%= 'orders/' + order.id.to_s %>"' role="link" class="pointer">
               <td>
                 <%= l order.created_at %>
               </td>
               <td>
-                <%= link_to admin_order_path(order) do %>
-                  <p><%= order.customer.last_name %><%= order.customer.first_name %></p>
-                <% end %>
+                <%= order.customer.last_name %><%= order.customer.first_name %>
               </td>
               <td>
                 <%= order.order_details.count %>
