@@ -75,7 +75,10 @@ ul li:last-child {
   cursor: pointer;
 }
 
-#carts_item_quantity {
+#carts_item_quantity,
+#order_status,
+#order_detail_making_status,
+#item_genre_id {
   border: none;
   border-bottom: 1px solid;
   padding-bottom: 10px;
